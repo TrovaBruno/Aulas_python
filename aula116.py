@@ -18,8 +18,8 @@
 # Vamos falar mais sobre o módulo json, mas:
 # json.dump = Gera um arquivo json
 # json.load
-
-caminho_arquivo = 'C:\\Users\\bruno\\OneDrive\\Cursos_Python\\Aulas_python'
+import os
+caminho_arquivo = 'C:\\Users\\bruno\\OneDrive\\Cursos_Python\\Aulas_python\\'
 caminho_arquivo += 'teste.txt'
 
 # Criando arquivos com Python + Context Manager with
@@ -31,31 +31,40 @@ caminho_arquivo += 'teste.txt'
 # arquivo = open(caminho_arquivo, 'w')
 # #
 # arquivo.close()
-with open(caminho_arquivo, 'w+') as arquivo:
-    print('Olá mundo')
-    print('Arquivo vai ser fechado')
+# with open(caminho_arquivo, 'w+') as arquivo:
+#     print('Olá mundo')
+#     print('Arquivo vai ser fechado')
 
-with open(caminho_arquivo, 'w+') as arquivo:
-    arquivo.write('Linha 1\n')
+# with open(caminho_arquivo, 'w+') as arquivo:
+#     arquivo.write('Linha 1\n')
+#     arquivo.write('Linha 2\n')
+#     arquivo.writelines(
+#         ('Linha 3\n', 'Linha 4\n')
+#     )
+#     arquivo.seek(0, 0)
+#     print(arquivo.read())
+#     print('Lendo')
+#     arquivo.seek(0, 0)
+#     print(arquivo.readline(), end='')
+#     print(arquivo.readline().strip())
+#     print(arquivo.readline().strip())
+
+#     print('READLINES')
+#     arquivo.seek(0, 0)
+#     for linha in arquivo.readlines():
+#         print(linha.strip())
+
+
+# print('#' * 10)
+
+# with open(caminho_arquivo, 'r') as arquivo:
+#     print(arquivo.read())
+
+with open(caminho_arquivo, 'w', encoding ='utf-8') as arquivo:
+    arquivo.write('Atenção\n')
     arquivo.write('Linha 2\n')
     arquivo.writelines(
         ('Linha 3\n', 'Linha 4\n')
     )
-    arquivo.seek(0, 0)
-    print(arquivo.read())
-    print('Lendo')
-    arquivo.seek(0, 0)
-    print(arquivo.readline(), end='')
-    print(arquivo.readline().strip())
-    print(arquivo.readline().strip())
 
-    print('READLINES')
-    arquivo.seek(0, 0)
-    for linha in arquivo.readlines():
-        print(linha.strip())
-
-
-print('#' * 10)
-
-with open(caminho_arquivo, 'r') as arquivo:
-    print(arquivo.read())
+    os.rename(caminho_arquivo, 'TESTE-V2.txt')
